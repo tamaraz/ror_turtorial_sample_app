@@ -32,4 +32,10 @@ class StaticPagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
     assert_select 'title', "Contact | #{@base_title}"
   end
+
+  # Adding the root route leads to the creation of a Rails helper called root_url
+  test 'should get root' do
+    get root_url
+    assert_response :success
+  end
 end
